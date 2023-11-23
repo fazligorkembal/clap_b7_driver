@@ -46,7 +46,7 @@
       lever_arm_slave:  [0.085 0.38 -0.12] # (m)(x,y,z) default [0.0 0.0 0.0] set the lever arm of the slave antenna relative to the IMU, in meters.
       lever_arm_master_error: [0.03 0.03 0.02] # (m)(x,y,z) default [0.0 0.0 0.0] set the lever arm error of the master antenna relative to the IMU, in meters.
       lever_arm_slave_error: [0.03 0.03 0.02] # (m)(x,y,z) default [0.0 0.0 0.0] set the lever arm error of the slave antenna relative to the IMU, in meters.
-      imu_position_offset: [0.0 0.0 0.0] #(m)(x,y,z) default [0.0 0.0 0.0]set the position offsets of IMU, when INS osition and velocity are output
+      imu_position_offset: [1.654 0.0 -1.387] #(m)(x,y,z) default [0.0 0.0 0.0]set the position offsets of IMU, when INS osition and velocity are output
 
     pps_config:
       enable: true # true (recommended) false-> disable pps
