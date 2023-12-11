@@ -22,7 +22,7 @@
       true_heading_offset: 180.0 # true heading offset in degrees
 
     time_config:
-      use_ros_time: false # use ROS time if true (not recommended)
+      use_ros_time: true # use ROS time if true (not recommended)
 
     odometry_config:
       use_odometry: false # use odometry if true
