@@ -2,7 +2,7 @@
   ros__parameters:
     serial_config:
       port: "/dev/ttyUSB0" # current port name of the device
-      baudrate: 115200 # current baudrate of the device 460800 recommended
+      baudrate: 460800 # current baudrate of the device 460800 recommended
       clap_port: 1 # 1->port1 2->port2 3->port3 connected clap-b7 port to serial
 
     port1_config:
@@ -42,14 +42,14 @@
       enable: true # true (recommended) false-> disable ins
       timeout: 300 #(sec) default 300 set the output duration of INS system when losing GNSS signals, in seconds.
       align_velocity_threshold: 0.5 # (m/s) default 0.5 set the velocity threshold for INS alignment, in m/s.
-      lever_arm_master: [0.085 -0.38 -0.12] # (m)(x,y,z)default [0.0 0.0 0.0] set the lever arm of the master antenna relative to the IMU, in meters.
-      lever_arm_slave:  [0.085 0.38 -0.12] # (m)(x,y,z) default [0.0 0.0 0.0] set the lever arm of the slave antenna relative to the IMU, in meters.
+      lever_arm_master: [-0.085 -0.38 -0.12] # (m)(x,y,z)default [0.0 0.0 0.0] set the lever arm of the master antenna relative to the IMU, in meters.
+      lever_arm_slave:  [-0.085 0.38 -0.12] # (m)(x,y,z) default [0.0 0.0 0.0] set the lever arm of the slave antenna relative to the IMU, in meters.
       lever_arm_master_error: [0.03 0.03 0.02] # (m)(x,y,z) default [0.0 0.0 0.0] set the lever arm error of the master antenna relative to the IMU, in meters.
       lever_arm_slave_error: [0.03 0.03 0.02] # (m)(x,y,z) default [0.0 0.0 0.0] set the lever arm error of the slave antenna relative to the IMU, in meters.
       imu_position_offset: [1.654 0.0 -1.387] #(m)(x,y,z) default [0.0 0.0 0.0]set the position offsets of IMU, when INS osition and velocity are output
 
     pps_config:
-      enable: true # true (recommended) false-> disable pps
+      enable: false, # true (recommended) false-> disable pps
       # 1->only when the time is valid, the PPS pulse can output; if losing satellite signals, the receiver stops outputtingPPS pulse
       # 0->Enable PPS output, keeping PPS pulse output after the first fix
       mode: 0

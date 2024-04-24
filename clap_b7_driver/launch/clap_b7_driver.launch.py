@@ -17,6 +17,6 @@ def generate_launch_description():
             executable = 'clap_b7_driver_node',
             output = 'screen',
             parameters=[config],
-            prefix=['xterm -e gdb -ex run -ex gcore --args']
+            # prefix=['xterm -e gdb -ex run -ex gcore --args']
         )
     ])
