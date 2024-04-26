@@ -10,6 +10,8 @@
 
 #include <GeographicLib/UTMUPS.hpp>
 
+#include <iostream>
+
 
 
 constexpr double accel_scale_factor = 0.000000186;
@@ -86,7 +88,6 @@ namespace clap_b7{
         else {
             nav_sat_fix_msg.status.status = sensor_msgs::msg::NavSatStatus::STATUS_NO_FIX;
         }
-
         nav_sat_fix_msg.status.service = sensor_msgs::msg::NavSatStatus::SERVICE_GPS;
         nav_sat_fix_msg.latitude = ins.latitude;
         nav_sat_fix_msg.longitude = ins.longitude;
@@ -138,7 +139,7 @@ namespace clap_b7{
             nav_sat_fix_msg.status.status = sensor_msgs::msg::NavSatStatus::STATUS_NO_FIX;
         }
 
-
+    
 
         nav_sat_fix_msg.status.service = sensor_msgs::msg::NavSatStatus::SERVICE_GPS;
         nav_sat_fix_msg.latitude = gps_pos.latitude;
