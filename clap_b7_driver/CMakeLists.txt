@@ -8,6 +8,7 @@ project(clap_b7_driver)
 
 # find dependencies
 find_package(autoware_cmake REQUIRED)
+find_package(Threads REQUIRED)
 autoware_package()
 
 
@@ -54,11 +55,13 @@ set(TARGET_SRC
         src/clap_config_params.cpp
         src/clap_publisher.cpp
         src/ll_to_utm_transform.cpp
+        src/serial_port.cpp
         )
 
 set(TARGET_SRC_CONFIG
         src/config_clap_b7_node.cpp
         src/config_clap_b7.cpp
+        src/serial_port.cpp
         )
 
 ament_auto_add_executable(clap_b7_driver_node
