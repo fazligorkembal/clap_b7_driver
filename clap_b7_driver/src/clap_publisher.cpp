@@ -37,6 +37,7 @@ namespace clap_b7 {
         pub_ecef_ = ref_ros_node.create_publisher<clap_b7_driver::msg::ClapECEF>("clap/ecef_pos", max_msg_size_);
         pub_wheel_odom_ = ref_ros_node.create_publisher<clap_b7_driver::msg::ClapWheelOdom>("clap/wheel_odom", max_msg_size_);
         heading_pub_ = ref_ros_node.create_publisher<clap_b7_driver::msg::ClapHeading>("clap/heading", max_msg_size_);
+        heading_odom_pub_ = ref_ros_node.create_publisher<nav_msgs::msg::Odometry>("clap/ros/heading_odom", max_msg_size_);
     }
 
     void Publishers::publish_ins(const clap_b7_driver::msg::ClapIns &ins_msg) {
@@ -80,6 +81,18 @@ namespace clap_b7 {
     void Publishers::publish_heading(const clap_b7_driver::msg::ClapHeading& heading_msg){
         if(heading_pub_) {
             heading_pub_->publish(heading_msg);
+            nav_msgs::msg::Odometry heading_odom_msg;
+            heading_odom_msg.header = heading_msg.header;
+
+            tf2::Quaternion orientation;
+            orientation.setRPY(0.0, 0.0, heading_msg.heading * M_PI / 180.0);
+            
+            heading_odom_msg.pose.pose.orientation.x = orientation.x();
+            heading_odom_msg.pose.pose.orientation.y = orientation.y();
+            heading_odom_msg.pose.pose.orientation.z = orientation.z();
+            heading_odom_msg.pose.pose.orientation.w = orientation.w();
+
+            heading_odom_pub_->publish(heading_odom_msg);
         }
     }
     void Publishers::publish_adis16470_imu(const clap_b7_driver::msg::ClapImu& adis16470_imu_msg){

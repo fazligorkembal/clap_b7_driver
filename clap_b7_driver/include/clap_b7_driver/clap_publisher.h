@@ -24,6 +24,8 @@
 
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2_ros/static_transform_broadcaster.h>
+#include "tf2_msgs/msg/tf_message.hpp"
+#include "tf2/LinearMath/Quaternion.h"
 
 #include <cstdint>
 
@@ -52,6 +54,7 @@ namespace clap_b7{
         rclcpp::Publisher<clap_b7_driver::msg::ClapGpsPos>::SharedPtr gps_pos_pub_;
         rclcpp::Publisher<clap_b7_driver::msg::ClapGpsVel>::SharedPtr gps_vel_pub_;
         rclcpp::Publisher<clap_b7_driver::msg::ClapHeading>::SharedPtr heading_pub_;
+        rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr heading_odom_pub_;
         rclcpp::Publisher<clap_b7_driver::msg::ClapImu>::SharedPtr adis16470_imu_pub_;
         rclcpp::Publisher<clap_b7_driver::msg::ClapIns>::SharedPtr ins_pub_;
         rclcpp::Publisher<clap_b7_driver::msg::ClapECEF>::SharedPtr pub_ecef_;
